@@ -1,6 +1,6 @@
-
+//Quiz questions
 let score = 0;
-let currentQuestion =0;
+let currentQuestion = 0;
 let questions = [
   {
     title: "Inside which HTML element do we put the JavaScript?",
@@ -24,7 +24,7 @@ let questions = [
   },
 ];
 
-$(document).ready(function(){
+$('document').ready(function(){
 
  $('.start').click(function(e){
   e.preventDefault();
@@ -56,9 +56,6 @@ $('.summary a').click(function(e){
 
 });
 
-
-
-
 function showQuestion(){
   let question = questions[currentQuestion];
   $('.quiz h2').text(question.title);
@@ -79,11 +76,12 @@ function checkAnswer(guess){
   } else {
   showQuestion();
 }
+
 }
 function showSummary(){
   $('.quiz').hide();
   $('.summary').show();
-  $('.summary p').text("Congrats you scored "+scored+" out of "+questions.length+" correct!");
+  $('.summary h2').text("Congrats you scored " + score + "out of " + questions.length + " correct!");
 }
 
 function restartQuiz(){
@@ -92,5 +90,56 @@ function restartQuiz(){
   score = 0;
   currentQuestion = 0;
   showQuestion();
-
 }
+
+//store Score in local storage
+const saveScorebtn = document.getElementById("saveScoreBtn");
+let scores = document.getElementById("score");
+const mostRecentScore = localStorage.getItem("mostRecentStore");
+
+const highScore = JSON.parse(localStorage.getItem("highScore")) || [];
+
+const MAX_HIGH_SCORE = 5;
+
+scores.innerHTML = mostRecentScore;
+
+scores = e => {
+  console.log("clicked the save button!");
+  e.preventDefault();
+
+  const score = {
+    score: Math.floor(Math.random() * 100)
+};
+highScore.push(score);
+highScore.sort ((a,b) => b.score - a.score);
+highScore.splice(5);
+
+localStorage.setItem("highScore", JSON.stringify(highScore));
+window.location.assign('/');
+};
+
+// score
+
+const highScoreList = document.getElementById("highScore");
+const highScores = JSON.parse(localStorage.getItem("highScore")) || [];
+console.log(highScores);
+
+
+
+
+
+//timer
+$(document).ready(function() {
+
+  // count down timer counter
+  var doUpdate = function() {
+    $('.countdown').each(function() {
+      var count = parseInt($(this).html());
+      if (count !== 0) {
+        $(this).html(count - 1);
+      }
+    });
+  };
+
+  setInterval(doUpdate, 1000);
+});

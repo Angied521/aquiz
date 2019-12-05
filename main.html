@@ -15,8 +15,11 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">View High Score</a>
-    <p>Timer: <span id="timer">75</span> Seconds</p>
+    <a class="saveScorebtn" class="navbar-brand"  href="#">
+        <div class id=score></div><h4>High Score</h4></a>
+        <ul id=highScoreList></ul>
+      
+    <p>Timer: <span class="countdown">75</span> Seconds</p>
     </nav>
 
     <div class="container">
@@ -24,7 +27,7 @@
             <div class="col-lg-8 col-sm-12 mx-auto">
 
                         <div class="start">
-                        <h2>Coding Quiz</h2>
+                        <h3>Coding Quiz</h3>
                         <p>Answer 5 questions within 75 seconds.  If you answer wrong, 15 are deducted from you time. See you high score at the end. Click the start button to begin.</p>
                         <a href="#">Start Quiz</a>
                     </div>    
@@ -41,7 +44,7 @@
                                     <li>choice</li>
                                     <li>choice</li>
                                 </ul>
-                                <a href="#">Submit Answer</a>
+                                <a class="btn" href="#">Submit Answer</a>
                             </div>
 
                             <div class="summary">
@@ -60,10 +63,10 @@
         </div>
     </div>
 
-
-
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script src="main.js"></script>
+   <script src="main.js"></script>
+
+    
 </body>
 </html>
