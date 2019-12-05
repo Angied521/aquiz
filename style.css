@@ -1,1 +1,16 @@
+.quiz, .summary {
+    display: none;
+}
 
+.quiz ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz li {
+    cursor: pointer;
+}
+
+.selected {
+    background-color:yellow;
+}
